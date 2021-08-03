@@ -1,2 +1,8 @@
-# vue-3d
-3D website using WebGL with Three.js
+# Vue 3D
+
+> 3D website using WebGL with Three.js
+
+# Table of contents
+
+- WebGL
+- Three.js
