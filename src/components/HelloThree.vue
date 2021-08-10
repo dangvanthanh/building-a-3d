@@ -5,6 +5,7 @@
 
 <script>
 import * as THREE from '//cdn.skypack.dev/three'
+import gsap from '//cdn.skypack.dev/gsap'
 
 export default {
   mounted() {
@@ -13,13 +14,13 @@ export default {
 
     // Group
     const group = new THREE.Group()
-    group.scale.y = 2
-    group.rotation.y = 0.2
+    group.scale.y = 1
+    // group.rotation.y = 0.2
     scene.add(group)
 
     // Cube
     const cubeRed = new THREE.Mesh(new THREE.BoxGeometry(1, 1, 1), new THREE.MeshBasicMaterial({ color: 0xff0000 }))
-    cubeRed.position.x = - 1.5
+    cubeRed.position.x = -1.5
     group.add(cubeRed)
     const cubeGreen = new THREE.Mesh(new THREE.BoxGeometry(1, 1, 1), new THREE.MeshBasicMaterial({ color: 0x00ff00 }))
     cubeGreen.position.x = 0
@@ -51,7 +52,26 @@ export default {
     })
 
     renderer.setSize(sizes.width, sizes.height)
-    renderer.render(scene, camera)
+
+    // Clock
+    const clock = new THREE.Clock()
+
+    gsap.to(cubeGreen.position, { duration: 1, delay: 1, x: 2 })
+    gsap.to(cubeGreen.position, { duration: 1, delay: 2, x: 0 })
+
+    // Animation
+    const tick = () => {
+      const elapsedTime = clock.getElapsedTime()
+      cubeRed.rotation.y = elapsedTime
+      cubeBlue.rotation.y = elapsedTime
+      camera.position.x = Math.cos(elapsedTime)
+      camera.position.y = Math.sin(elapsedTime)
+      camera.lookAt(group.position)
+      renderer.render(scene, camera)
+      window.requestAnimationFrame(tick)
+    }
+
+    tick()
   },
 }
 </script>
