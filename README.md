@@ -1,13 +1,5 @@
-# Vue 3D
+# Build a 3D
 
-> 3D website using WebGL with Three.js
+## License
 
-# Table of contents
-
-- WebGL
-- Three.js
-    + Basic
-    + Classic techniques
-    + Advanced techniques
-    + Shaders
-    + Extra
+MIT © [Dang Van Thanh](https://dangthanh.org)
