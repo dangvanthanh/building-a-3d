@@ -1,18 +1,27 @@
 {
-  "name": "vue-3d",
-  "version": "0.1.0",
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "serve": "vite preview"
-  },
-  "dependencies": {
-    "vue": "3.2.1"
-  },
-  "devDependencies": {
-    "@vitejs/plugin-vue": "1.4.0",
-    "@vue/compiler-sfc": "3.2.1",
-    "vite": "^2.4.4"
-  },
-  "license": "MIT"
+	"name": "building-a-3d",
+	"private": true,
+	"scripts": {
+		"build": "turbo build",
+		"dev": "turbo dev",
+		"lint": "turbo lint",
+		"format": "turbo format",
+		"prepare": "git config core.hooksPath .hooks"
+	},
+	"devDependencies": {
+		"@repo/biome-config": "workspace:*",
+		"@repo/typescript-config": "workspace:*",
+		"lint-staged": "^15.2.7",
+		"turbo": "^2.0.6",
+		"typescript": "^5.4.5"
+	},
+	"engines": {
+		"node": ">=18"
+	},
+	"packageManager": "bun@1.1.18",
+	"workspaces": ["apps/*", "packages/*"],
+	"lint-staged": {
+		"*.{js,ts,tsx}": ["bun run lint", "bun run format"]
+	},
+	"trustedDependencies": ["@biomejs/biome"]
 }
