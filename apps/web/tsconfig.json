@@ -1,3 +1,12 @@
 {
-  "extends": "@repo/typescript-config/nextjs.json"
+  "extends": "@repo/typescript-config/nextjs.json",
+  "include": [
+    "next-env.d.ts",
+    ".next/types/**/*.ts",
+    "**/*.ts",
+    "**/*.tsx"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

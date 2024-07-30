@@ -7,7 +7,6 @@ export default function Frame() {
 	return (
 		<Canvas>
 			<ambientLight intensity={Math.PI / 2} />
-
 			<spotLight
 				position={[10, 10, 10]}
 				angle={0.15}
